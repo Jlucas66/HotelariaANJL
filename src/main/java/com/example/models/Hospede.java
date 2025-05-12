@@ -1,20 +1,21 @@
-package com.example.hotelariaanjl.models;
+package com.example.models;
 
 import java.util.ArrayList;
-import com.example.hotelariaanjl.models.Quarto;
-import com.example.hotelariaanjl.models.Pagamento;
-import com.example.hotelariaanjl.models.Hospede;
+import com.example.models.Quarto;
+import com.example.models.Pagamento;
+import com.example.models.Hospede;
 
 public class Hospede extends Usuario{
     private String nome;
     private String cpf;
     private String email;
+    private String senha;
     private String telefone;
     private String endereco;
     private ArrayList<Reserva> reserva;
     private ArrayList<Pagamento> pagamento;
 
-    public Hospede(String usuario, String nome, String cpf, String email, String telefone, String endereco) {
+    public Hospede(String usuario, String nome, String cpf, String email, String telefone, String endereco, String senha) {
         super(usuario, email, senha);
         this.nome = nome;
         this.cpf = cpf;

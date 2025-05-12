@@ -1,4 +1,4 @@
-package com.example.hotelariaanjl.models;
+package com.example.models;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ public class Quarto {
     private Enum tipoQuarto;
     private int capacidadeDeHospedes;
     private Double preco;
-    private inte numeroDeCamas;
+    private int numeroDeCamas;
     private ArrayList<Reserva> reservas;
 
     public Quarto(Enum tipoQuarto, int capacidadeDeHospedes, Double preco, int numeroDeCamas) {

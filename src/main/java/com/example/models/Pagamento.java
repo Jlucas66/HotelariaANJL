@@ -1,7 +1,7 @@
-package com.example.hotelariaanjl.models;
+package com.example.models;
 
-import com.example.hotelariaanjl.models.Reserva;
-import com.example.hotelariaanjl.models.Hospede;
+import com.example.models.Reserva;
+import com.example.models.Hospede;
 
 public class Pagamento {
     private Enum formaDePagamento;

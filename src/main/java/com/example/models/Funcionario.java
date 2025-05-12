@@ -1,4 +1,4 @@
-package models;
+package com.example.models;
 
 public class Funcionario extends Usuario {
     private String nome;

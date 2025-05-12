@@ -11,6 +11,6 @@ module com.example.hotelariaanjl {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens com.example.hotelariaanjl to javafx.fxml;
-    exports com.example.hotelariaanjl;
+    // opens com.example.hotelariaanjl to javafx.fxml;
+    // exports com.example.hotelariaanjl;
 }

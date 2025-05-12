@@ -1,4 +1,4 @@
-package com.example.hotelariaanjl;
+package com.example.testeFront;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

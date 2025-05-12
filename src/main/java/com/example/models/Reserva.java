@@ -1,4 +1,4 @@
-package com.example.hotelariaanjl.models;
+package com.example.models;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -6,9 +6,9 @@ import java.util.Date;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import com.example.hotelariaanjl.models.Quarto;
-import com.example.hotelariaanjl.models.Pagamento;
-import com.example.hotelariaanjl.models.Hospede;
+import com.example.models.Quarto;
+import com.example.models.Pagamento;
+import com.example.models.Hospede;
 
 public class Reserva {
     private Date dataEntrada;
@@ -18,7 +18,7 @@ public class Reserva {
     private Double valorBase;
     private Pagamento pagamento;
     private ArrayList<Quarto> quartosReservado;
-    }
+    
 
     public Reserva(Date dataEntrada, Date dataSaida, Hospede hospedeResponsavel, int numeroDeHospedes, Double valorBase) {
         this.dataEntrada = dataEntrada;
@@ -70,3 +70,4 @@ public class Reserva {
     public void setQuartosReservado(ArrayList<Quarto> quartosReservado) {
         this.quartosReservado = quartosReservado;
     }
+}
