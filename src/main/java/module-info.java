@@ -12,6 +12,6 @@ module com.example.hotelariaanjl {
     requires com.almasb.fxgl.all;
 
 
-    opens com.example.hotelariaanjl to javafx.fxml;
+    opens com.example.testeFront to javafx.fxml;
     exports com.example.testeFront;
 }
