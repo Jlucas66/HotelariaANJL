@@ -1,26 +1,28 @@
 package com.example.models;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 
+import com.example.enums.TipoQuarto;
+
 public class Quarto {
-    private Enum tipoQuarto;
+    private TipoQuarto tipoQuarto;
     private int capacidadeDeHospedes;
     private Double preco;
     private int numeroDeCamas;
     private ArrayList<Reserva> reservas;
 
-    public Quarto(Enum tipoQuarto, int capacidadeDeHospedes, Double preco, int numeroDeCamas) {
+    public Quarto(TipoQuarto tipoQuarto, int capacidadeDeHospedes, Double preco, int numeroDeCamas) {
         this.tipoQuarto = tipoQuarto;
         this.capacidadeDeHospedes = capacidadeDeHospedes;
         this.preco = preco;
         this.numeroDeCamas = numeroDeCamas;
         this.reservas = new ArrayList<>();
     }
-    public Enum getTipoQuarto() {
+    public TipoQuarto getTipoQuarto() {
         return tipoQuarto;
     }
-    public void setTipoQuarto(Enum tipoQuarto) {
+    public void setTipoQuarto(TipoQuarto tipoQuarto) {
         this.tipoQuarto = tipoQuarto;
     }
     public int getCapacidadeDeHospedes() {

@@ -1,14 +1,8 @@
 package com.example.models;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
-import java.time.LocalDateTime;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import com.example.models.Quarto;
-import com.example.models.Pagamento;
-import com.example.models.Hospede;
+
 
 public class Reserva {
     private Date dataEntrada;

@@ -2,16 +2,18 @@ package com.example.models;
 
 import com.example.models.Reserva;
 import com.example.models.Hospede;
+import com.example.enums.FormaDePagamento;
+import com.example.enums.ServicosAdicionais;
 
 public class Pagamento {
-    private Enum formaDePagamento;
-    private Enum servicosAdicionais;
+    private FormaDePagamento formaDePagamento;
+    private ServicosAdicionais servicosAdicionais;
     private Double valorTotal;
     private Reserva reserva;
     private Hospede hospede;
     private String status;
 
-    public Pagamento(Enum formaDePagamento, Enum servicosAdicionais, Double valorTotal, Reserva reserva, Hospede hospede) {
+    public Pagamento(FormaDePagamento formaDePagamento, ServicosAdicionais servicosAdicionais, Double valorTotal, Reserva reserva, Hospede hospede) {
         this.formaDePagamento = formaDePagamento;
         this.servicosAdicionais = servicosAdicionais;
         this.valorTotal = valorTotal;
@@ -19,16 +21,16 @@ public class Pagamento {
         this.hospede = hospede;
         this.status = "Pendente";
     }
-    public Enum getFormaDePagamento() {
+    public FormaDePagamento getFormaDePagamento() {
         return formaDePagamento;
     }
-    public void setFormaDePagamento(Enum formaDePagamento) {
+    public void setFormaDePagamento(FormaDePagamento formaDePagamento) {
         this.formaDePagamento = formaDePagamento;
     }
-    public Enum getServicosAdicionais() {
+    public ServicosAdicionais getServicosAdicionais() {
         return servicosAdicionais;
     }
-    public void setServicosAdicionais(Enum servicosAdicionais) {
+    public void setServicosAdicionais(ServicosAdicionais servicosAdicionais) {
         this.servicosAdicionais = servicosAdicionais;
     }
     public Double getValorTotal() {
