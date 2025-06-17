@@ -5,6 +5,7 @@ import java.util.Date;
 
 
 public class Reserva {
+    private int id;
     private Date dataEntrada;
     private Date dataSaida;
     private Hospede hospedeResponsavel;
@@ -13,8 +14,9 @@ public class Reserva {
     private Pagamento pagamento;
     private ArrayList<Quarto> quartosReservado;
     
-
-    public Reserva(Date dataEntrada, Date dataSaida, Hospede hospedeResponsavel, int numeroDeHospedes, Double valorBase) {
+    
+    public Reserva(int id, Date dataEntrada, Date dataSaida, Hospede hospedeResponsavel, int numeroDeHospedes, Double valorBase) {
+        this.id = id;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.hospedeResponsavel = hospedeResponsavel;
@@ -63,5 +65,11 @@ public class Reserva {
     }
     public void setQuartosReservado(ArrayList<Quarto> quartosReservado) {
         this.quartosReservado = quartosReservado;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 }

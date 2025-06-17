@@ -11,8 +11,16 @@ public class Quarto {
     private Double preco;
     private int numeroDeCamas;
     private ArrayList<Reserva> reservas;
+    private int id;
 
-    public Quarto(TipoQuarto tipoQuarto, int capacidadeDeHospedes, Double preco, int numeroDeCamas) {
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public Quarto(int id, TipoQuarto tipoQuarto, int capacidadeDeHospedes, Double preco, int numeroDeCamas) {
+        this.id = id;
         this.tipoQuarto = tipoQuarto;
         this.capacidadeDeHospedes = capacidadeDeHospedes;
         this.preco = preco;

@@ -1,8 +1,7 @@
 package com.example.models;
 
 import java.util.ArrayList;
-import com.example.models.Quarto;
-import com.example.models.Pagamento;
+
 import com.example.models.Hospede;
 
 public class Hospede extends Usuario{

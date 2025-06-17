@@ -1,7 +1,5 @@
 package com.example.models;
 
-import com.example.models.Reserva;
-import com.example.models.Hospede;
 import com.example.enums.FormaDePagamento;
 import com.example.enums.ServicosAdicionais;
 
@@ -12,8 +10,10 @@ public class Pagamento {
     private Reserva reserva;
     private Hospede hospede;
     private String status;
+    private int id;
 
-    public Pagamento(FormaDePagamento formaDePagamento, ServicosAdicionais servicosAdicionais, Double valorTotal, Reserva reserva, Hospede hospede) {
+    public Pagamento(int id, FormaDePagamento formaDePagamento, ServicosAdicionais servicosAdicionais, Double valorTotal, Reserva reserva, Hospede hospede) {
+        this.id = id;
         this.formaDePagamento = formaDePagamento;
         this.servicosAdicionais = servicosAdicionais;
         this.valorTotal = valorTotal;
@@ -21,6 +21,7 @@ public class Pagamento {
         this.hospede = hospede;
         this.status = "Pendente";
     }
+
     public FormaDePagamento getFormaDePagamento() {
         return formaDePagamento;
     }
@@ -56,5 +57,13 @@ public class Pagamento {
     }
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
