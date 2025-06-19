@@ -1,5 +1,7 @@
 package com.example.models;
 
+import com.example.enums.Cargo;
+
 public class Funcionario extends Usuario {
     private String nome;
     private Enum cargo;
@@ -7,12 +9,13 @@ public class Funcionario extends Usuario {
     private String email;
     private String senha;
 
-    public Funcionario(String usuario, String nome, String cpf, String email, String senha) {
+    public Funcionario(String usuario, String nome, String cpf, String email, String senha, Cargo cargo) {
         super(usuario, email, senha);
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
+        this.cargo = cargo;
     }
     public String getNome() {
         return nome;
