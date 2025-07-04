@@ -2,7 +2,7 @@ package com.example.models;
 
 import com.example.enums.Cargo;
 
-public class Funcionario extends Usuario {
+public abstract class Funcionario extends Usuario {
     private String nome;
     private Enum cargo;
     private String cpf;
@@ -17,6 +17,8 @@ public class Funcionario extends Usuario {
         this.senha = senha;
         this.cargo = cargo;
     }
+
+    public abstract double calcularSalario();
     public String getNome() {
         return nome;
     }

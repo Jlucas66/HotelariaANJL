@@ -5,6 +5,7 @@ import com.example.controllers.QuartoController;
 import com.example.controllers.ReservaController;
 import com.example.controllers.UsuarioController;
 import com.example.enums.Cargo;
+import com.example.models.Funcionario;
 import com.example.models.Hospede;
 import com.example.models.Pagamento;
 import com.example.models.Quarto;
@@ -74,9 +75,35 @@ public class Main {
         System.out.println("\n Teste: Cadastrar Hóspede");
         usuarioController.cadastrarHospede("João da Silva", "111.222.333-44", "joao@email.com");
 
+        //cadastrando um funcionário
         System.out.println("\n Teste: Cadastrar Funcionário");
-        usuarioController.cadastrarFuncionario("Maria Souza", "555.666.777-88", "maria@email.com", Cargo.RECEPCIONISTA);
 
+        // Funcionário com salário fixo
+        usuarioController.cadastrarFuncionarioFixo(
+            "user1", "Maria", "11111111111", Cargo.RECEPCIONISTA, 3000
+        );
+
+        // Funcionário com comissão apenas
+        usuarioController.cadastrarFuncionarioComissionado(
+            "user2", "João", "22222222222", Cargo.CAMAREIRA, 10000, 0.1
+        );
+
+        // Funcionário com salário fixo + comissão
+        usuarioController.cadastrarFuncionarioFixoMaisComissao(
+            "user3", "Ana", "33333333333", Cargo.GERENTE, 2500.0, 15000.0, 0.05
+        );
+
+        // Listar todos os usuários e mostrar salários
+        System.out.println("\n=== Funcionários cadastrados ===");
+        for (Usuario usuario : usuarioController.listarTodosUsuarios()) {
+            if (usuario instanceof Funcionario funcionario) {
+                System.out.println("Nome: " + funcionario.getNome());
+                System.out.println("Cargo: " + funcionario.getCargo());
+                System.out.println("Salário: R$" + funcionario.calcularSalario());
+                System.out.println("-----------------------------");
+            }
+        }
+        
         // Listar todos os usuários
         System.out.println("\n Teste: Listar todos os usuários");
         Usuario[] usuarios = usuarioController.listarTodosUsuarios();

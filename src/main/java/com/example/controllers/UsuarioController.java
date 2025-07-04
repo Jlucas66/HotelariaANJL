@@ -2,6 +2,9 @@ package com.example.controllers;
 
 import com.example.enums.Cargo;
 import com.example.models.Funcionario;
+import com.example.models.FuncionarioComissionado;
+import com.example.models.FuncionarioFixoMaisComissao;
+import com.example.models.FuncionarioSalarioFixo;
 import com.example.models.Hospede;
 import com.example.models.Usuario;
 import com.example.repositories.UsuarioRepository;
@@ -18,8 +21,17 @@ public class UsuarioController implements IUsuarioController {
         usuarioRepository.save(hospede);
     }
 
-    public void cadastrarFuncionario(String nome, String cpf, String email, Cargo cargo) {
-        Funcionario funcionario = new Funcionario(nome, cpf, email, "defaultAddress", "defaultPhone", cargo);
+    public void cadastrarFuncionarioFixo(String nome, String cpf, String email, Cargo cargo, double salarioFixo) {
+        Funcionario funcionario = new FuncionarioSalarioFixo(email, nome, cpf, email, email, cargo, salarioFixo);
+        usuarioRepository.save(funcionario);
+    }
+
+    public void cadastrarFuncionarioComissionado(String nome, String cpf, String email, Cargo cargo, double reservasFeitas, double taxaPorReserva) {
+        Funcionario funcionario = new FuncionarioComissionado(email, nome, cpf, email, email, cargo, reservasFeitas, taxaPorReserva);
+        usuarioRepository.save(funcionario);
+    }
+    public void cadastrarFuncionarioFixoMaisComissao(String nome, String cpf, String email, Cargo cargo, double salarioFixo, double reservasFeitas, double taxaPorReserva) {
+        Funcionario funcionario = new FuncionarioFixoMaisComissao(email, nome, cpf, email, email, cargo, salarioFixo, reservasFeitas, taxaPorReserva);
         usuarioRepository.save(funcionario);
     }
 
