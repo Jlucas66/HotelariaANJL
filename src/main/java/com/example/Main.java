@@ -5,6 +5,7 @@ import com.example.controllers.QuartoController;
 import com.example.controllers.ReservaController;
 import com.example.controllers.UsuarioController;
 import com.example.enums.Cargo;
+import com.example.exceptions.DadosInvalidosException;
 import com.example.models.Funcionario;
 import com.example.models.Hospede;
 import com.example.models.Pagamento;
@@ -71,27 +72,32 @@ public class Main {
             if (r != null) System.out.println(r);
         }
 
-        //cadastrando usuários
-        System.out.println("\n Teste: Cadastrar Hóspede");
-        usuarioController.cadastrarHospede("João da Silva", "111.222.333-44", "joao@email.com");
+        try {
+            System.out.println("\nTeste: Cadastrar Funcionário com Salário Fixo");
+            usuarioController.cadastrarFuncionarioFixo(
+                "Maria", "11111111111", "maria@email.com", Cargo.RECEPCIONISTA, 3000.0
+            );
 
-        //cadastrando um funcionário
-        System.out.println("\n Teste: Cadastrar Funcionário");
+            System.out.println("\nTeste: Cadastrar Funcionário Comissionado");
+            usuarioController.cadastrarFuncionarioComissionado(
+                "João", "22222222222", "joao@email.com", Cargo.CAMAREIRA, 10000, 0.1
+            );
 
-        // Funcionário com salário fixo
-        usuarioController.cadastrarFuncionarioFixo(
-            "user1", "Maria", "11111111111", Cargo.RECEPCIONISTA, 3000
-        );
+            System.out.println("\nTeste: Cadastrar Funcionário Fixo + Comissão");
+            usuarioController.cadastrarFuncionarioFixoMaisComissao(
+                "Ana", "33333333333", "ana@email.com", Cargo.GERENTE, 2500.0, 15000.0, 0.05
+            );
 
-        // Funcionário com comissão apenas
-        usuarioController.cadastrarFuncionarioComissionado(
-            "user2", "João", "22222222222", Cargo.CAMAREIRA, 10000, 0.1
-        );
+            // Listar todos os usuários cadastrados
+            System.out.println("\nUsuários cadastrados:");
+            var usuarios = usuarioController.listarTodosUsuarios();
+            for (var usuario : usuarios) {
+                System.out.println("ID: " + usuario.getId() + " | Usuário: " + usuario.getUsuario() + " | Email: " + usuario.getEmail());
+            }
 
-        // Funcionário com salário fixo + comissão
-        usuarioController.cadastrarFuncionarioFixoMaisComissao(
-            "user3", "Ana", "33333333333", Cargo.GERENTE, 2500.0, 15000.0, 0.05
-        );
+        } catch (DadosInvalidosException e) {
+            System.err.println("Erro ao cadastrar usuário: " + e.getMessage());
+        }
 
         // Listar todos os usuários e mostrar salários
         System.out.println("\n=== Funcionários cadastrados ===");
@@ -111,31 +117,34 @@ public class Main {
             System.out.println(u.getUsuario() + " - " + u.getEmail());
         }
 
-        //buscando usuário por id
-        System.out.println("\n Teste: Buscar usuário por ID (ID 1)");
-        Usuario usuario = usuarioController.buscarPorId(1);
-        if (usuario != null) {
-            System.out.println("Usuário encontrado: " + usuario.getUsuario());
-        } else {
-            System.out.println("Usuário não encontrado.");
-        }
+        try {
+            //buscando usuário por id
+            System.out.println("\n Teste: Buscar usuário por ID (ID 1)");
+            Usuario usuario = usuarioController.buscarPorId(1);
+            if (usuario != null) {
+                System.out.println("Usuário encontrado: " + usuario.getUsuario());
+            } else {
+                System.out.println("Usuário não encontrado.");
+            }
 
-        //Atualizando usuário
-        System.out.println("\n Teste: Atualizar usuário (ID 1)");
-        if (usuario != null) {
-            usuario.setUsuario("João Atualizado");
-            usuarioController.atualizar(usuario);
-        }
+            //Atualizando usuário
+            System.out.println("\n Teste: Atualizar usuário (ID 1)");
+            if (usuario != null) {
+                usuario.setUsuario("João Atualizado");
+                usuarioController.atualizar(usuario);
+            }
 
-        //removendo usuário por id
-        System.out.println("\n Teste: Remover usuário (ID 2)");
-        usuarioController.deletar(2);
+            //removendo usuário por id
+            System.out.println("\n Teste: Remover usuário (ID 2)");
+            usuarioController.deletar(2);
 
-
-        //listando usuários após remoção
-        System.out.println("\n Estado final dos usuários:");
-        for (Usuario u : usuarioController.listarTodosUsuarios()) {
-            System.out.println("ID: " + u.getId() + " | Nome: " + u.getUsuario());
+            //listando usuários após remoção
+            System.out.println("\n Estado final dos usuários:");
+            for (Usuario u : usuarioController.listarTodosUsuarios()) {
+                System.out.println("ID: " + u.getId() + " | Nome: " + u.getUsuario());
+            }
+        } catch (DadosInvalidosException e) {
+            System.err.println("Erro ao executar operação: " + e.getMessage());
         }
     }
 }
