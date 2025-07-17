@@ -11,7 +11,7 @@ public class Reserva {
     private int numeroDeHospedes;
     private Double valorBase;
     private Pagamento pagamento;
-    private ArrayList<Quarto> quartosReservado;
+    private ArrayList<ItemReserva> itensReserva;
 
     public Reserva(int id, Date dataEntrada, Date dataSaida, Hospede hospedeResponsavel, int numeroDeHospedes,
             Double valorBase) {
@@ -21,7 +21,7 @@ public class Reserva {
         this.hospedeResponsavel = hospedeResponsavel;
         this.numeroDeHospedes = numeroDeHospedes;
         this.valorBase = valorBase;
-        this.quartosReservado = new ArrayList<>();
+        this.itensReserva = new ArrayList<>();
     }
 
     public Date getDataEntrada() {
@@ -72,12 +72,12 @@ public class Reserva {
         this.pagamento = pagamento;
     }
 
-    public ArrayList<Quarto> getQuartosReservado() {
-        return quartosReservado;
+    public ArrayList<ItemReserva> getItemReserva() {
+        return itensReserva;
     }
 
-    public void setQuartosReservado(ArrayList<Quarto> quartosReservado) {
-        this.quartosReservado = quartosReservado;
+    public void setQuartosReservado(ArrayList<ItemReserva> itensReserva) {
+        this.itensReserva = itensReserva;
     }
 
     public int getId() {
@@ -96,7 +96,7 @@ public class Reserva {
                 ", Valor=" + valorBase +
                 ", DataEntrada=" + dataEntrada +
                 ", DataSaida=" + dataSaida +
-                ", Quartos=" + quartosReservado.size() + "]";
+                ", Itens Reservados=" + itensReserva.size() + "]";
     }
 
     @Override
@@ -109,6 +109,15 @@ public class Reserva {
             return false;
         Reserva other = (Reserva) obj;
         return id == other.id;
+    }
+
+    public void adicionarItem(Quarto quarto, int dias) {
+        ItemReserva item = new ItemReserva(quarto, dias);
+        itensReserva.add(item);
+    }
+
+    public double calcularValorTotal() {
+        return itensReserva.stream().mapToDouble(ItemReserva::getPrecoTotal).sum();
     }
 
 }

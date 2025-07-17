@@ -1,9 +1,10 @@
 package com.example.controllers;
 
+import com.example.enums.TipoQuarto;
 import com.example.models.Quarto;
 import com.example.repositories.QuartoRepository;
 
-public class QuartoController implements IQuartoController {
+public class QuartoController{
     private QuartoRepository quartoRepository;
 
     public QuartoController() {
@@ -28,6 +29,10 @@ public class QuartoController implements IQuartoController {
 
     public void atualizar(Quarto quarto) {
         quartoRepository.update(quarto);
+    }
+
+    public void criarQuarto(TipoQuarto tipoQuarto, int capacidade, double preco, int camas){
+        System.out.println("Quarto criado");
     }
 
 }

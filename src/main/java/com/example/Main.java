@@ -5,9 +5,11 @@ import com.example.controllers.QuartoController;
 import com.example.controllers.ReservaController;
 import com.example.controllers.UsuarioController;
 import com.example.enums.Cargo;
+import com.example.enums.TipoQuarto;
 import com.example.exceptions.DadosInvalidosException;
 import com.example.models.Funcionario;
 import com.example.models.Hospede;
+import com.example.models.ItemReserva;
 import com.example.models.Pagamento;
 import com.example.models.Quarto;
 import com.example.models.Reserva;
@@ -23,7 +25,7 @@ public class Main {
         UsuarioController usuarioController = new UsuarioController();
 
         // Criando e salvando um quarto
-        Quarto quarto = new Quarto(0, null, 0, null, 0);
+        Quarto quarto = new Quarto(0, null, 0, 500, 0);
         quartoController.salvar(quarto);
 
         // Listando quartos
@@ -147,4 +149,34 @@ public class Main {
             System.err.println("Erro ao executar operação: " + e.getMessage());
         }
     }
+
+
+   /*
+   TESTES QUE AINDA VÃO SER IMPLEMENTADOS
+   // Criar quartos
+Quarto quarto1 = new Quarto(1, TipoQuarto.SIMPLES, 2, 150.0, 1);
+Quarto quarto2 = new Quarto(2, TipoQuarto.LUXO, 4, 300.0, 2);
+
+// Criar hóspede (supondo construtor simples)
+Hospede hospede = new Hospede(1, "Antônio Guedes");
+
+// Criar reserva para 3 hóspedes, 3 dias
+Reserva reserva = new Reserva(1, new Date(), new Date(System.currentTimeMillis() + 3L * 24 * 60 * 60 * 1000), hospede, 3, 0.0);
+
+// Adicionar itens à reserva
+reserva.adicionarItem(quarto1, 2); // 2 dias no quarto simples
+reserva.adicionarItem(quarto2, 1); // 1 dia no quarto luxo
+
+// Mostrar detalhes da reserva
+System.out.println(reserva);
+
+// Mostrar cada item da reserva
+for (ItemReserva item : reserva.getItensReserva()) {
+    System.out.println(item);
+}
+
+// Mostrar valor total dos itens
+System.out.println("Valor total dos itens: " + reserva.calcularValorTotalItens());
+*/ 
+
 }

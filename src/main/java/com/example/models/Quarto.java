@@ -9,7 +9,6 @@ public class Quarto {
     private int capacidadeDeHospedes;
     private Double preco;
     private int numeroDeCamas;
-    private ArrayList<Reserva> reservas;
     private int id;
 
     public int getId() {
@@ -20,13 +19,12 @@ public class Quarto {
         this.id = id;
     }
 
-    public Quarto(int id, TipoQuarto tipoQuarto, int capacidadeDeHospedes, Double preco, int numeroDeCamas) {
+    public Quarto(int id, TipoQuarto tipoQuarto, int capacidadeDeHospedes, double preco, int numeroDeCamas) {
         this.id = id;
         this.tipoQuarto = tipoQuarto;
         this.capacidadeDeHospedes = capacidadeDeHospedes;
         this.preco = preco;
         this.numeroDeCamas = numeroDeCamas;
-        this.reservas = new ArrayList<>();
     }
 
     public TipoQuarto getTipoQuarto() {
@@ -45,7 +43,7 @@ public class Quarto {
         this.capacidadeDeHospedes = capacidadeDeHospedes;
     }
 
-    public Double getPreco() {
+    public double getPreco() {
         return preco;
     }
 
@@ -59,14 +57,6 @@ public class Quarto {
 
     public void setNumeroDeCamas(int numeroDeCamas) {
         this.numeroDeCamas = numeroDeCamas;
-    }
-
-    public ArrayList<Reserva> getReservas() {
-        return reservas;
-    }
-
-    public void setReservas(ArrayList<Reserva> reservas) {
-        this.reservas = reservas;
     }
 
     @Override

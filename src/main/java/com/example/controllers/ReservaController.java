@@ -1,9 +1,11 @@
 package com.example.controllers;
 
+import com.example.models.ItemReserva;
+import com.example.models.Quarto;
 import com.example.models.Reserva;
 import com.example.repositories.ReservaRepository;
 
-public class ReservaController implements IReservaController {
+public class ReservaController{
 
     private ReservaRepository reservaRepository;
 
@@ -30,4 +32,12 @@ public class ReservaController implements IReservaController {
     public Reserva[] listarTodasReservas() {
         return reservaRepository.findAll();
     }
+
+
+    public void adicionarItemReserva(int reservaId, Quarto quarto, int dias){
+        Reserva reserva = reservaRepository.findById(reservaId);
+        reserva.adicionarItem(quarto, dias);
+        reservaRepository.save(reserva);
+    }
+    
 }
