@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -37,6 +39,23 @@
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="603.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="685.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="767.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Button layoutX="1131.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Sair" />
+      <Text layoutX="774.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="702.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" />
+      <TextField layoutX="699.0" layoutY="204.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <TextField layoutX="699.0" layoutY="272.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Text layoutX="702.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
+      <Text layoutX="700.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
+      <TextField layoutX="699.0" layoutY="339.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Text layoutX="698.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
+      <TextField layoutX="699.0" layoutY="408.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <PasswordField layoutX="699.0" layoutY="476.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Text layoutX="702.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" />
+      <Text layoutX="702.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirme sua Senha:" />
+      <PasswordField layoutX="699.0" layoutY="544.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Button layoutX="772.0" layoutY="630.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="138.0" style="-fx-background-color: #2196F3;" text="Finalizar" />
    </children>
 </AnchorPane>

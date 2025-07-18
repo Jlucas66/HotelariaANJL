@@ -37,6 +37,20 @@
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="603.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="685.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="767.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Button layoutX="1131.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Sair" />
+      <Button layoutX="616.0" layoutY="143.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="160.0" style="-fx-background-color: #2196F3;" text="Hóspedes" />
+      <Text layoutX="752.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Escolha sua opção:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button layoutX="616.0" layoutY="247.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="160.0" style="-fx-background-color: #2196F3;" text="Quartos" />
+      <Button layoutX="616.0" layoutY="351.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="160.0" style="-fx-background-color: #2196F3;" text="Reservas" />
+      <Button layoutX="616.0" layoutY="460.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="160.0" style="-fx-background-color: #2196F3;" text="Pagamentos" />
+      <Button layoutX="616.0" layoutY="561.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="160.0" style="-fx-background-color: #2196F3;" text="Descontos " />
+      <Button layoutX="912.0" layoutY="195.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="160.0" style="-fx-background-color: #2196F3;" text="Promoções" />
+      <Button layoutX="912.0" layoutY="299.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="160.0" style="-fx-background-color: #2196F3;" text="Relatórios" />
+      <Button layoutX="912.0" layoutY="408.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="160.0" style="-fx-background-color: #2196F3;" text="Serviços Adicionais " />
+      <Button layoutX="912.0" layoutY="505.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="160.0" style="-fx-background-color: #2196F3;" text="Tarifas" />
+      <Button layoutX="912.0" layoutY="613.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="160.0" style="-fx-background-color: #2196F3;" text="Gerar Backup" />
    </children>
 </AnchorPane>
