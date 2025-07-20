@@ -15,9 +15,8 @@ import com.example.models.Quarto;
 import com.example.models.Reserva;
 import com.example.models.Usuario;
 
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DadosInvalidosException {
         // Instanciando controllers
         PagamentoController pagamentoController = new PagamentoController();
         QuartoController quartoController = new QuartoController();
@@ -31,20 +30,23 @@ public class Main {
         // Listando quartos
         System.out.println("Quartos cadastrados:");
         for (Quarto q : quartoController.listarTodosQuarto()) {
-            if (q != null) System.out.println(q);
+            if (q != null)
+                System.out.println(q);
         }
 
-         // Criando um hóspede
-        Hospede hospede = new Hospede("usuario1", "João Silva", "12345678900", "joao@email.com", "81999999999", "Rua A, 123", "senha123");
+        // Criando um hóspede
+        Hospede hospede = new Hospede("usuario1", "João Silva", "12345678900", "joao@email.com", "81999999999",
+                "Rua A, 123", "senha123");
 
         // Criando e salvando uma reserva
-        Reserva reserva = new Reserva(0, null, null, hospede, 0, null);
+        Reserva reserva = new Reserva(0, null, null, hospede, 0, null, false);
         reservaController.cadastrarReserva(reserva);
 
         // Listando reservas
         System.out.println("\nReservas cadastradas:");
         for (Reserva r : reservaController.listarTodasReservas()) {
-            if (r != null) System.out.println(r);
+            if (r != null)
+                System.out.println(r);
         }
 
         // Criando e salvando um pagamento
@@ -54,7 +56,8 @@ public class Main {
         // Listando pagamentos
         System.out.println("\nPagamentos cadastrados:");
         for (Pagamento p : pagamentoController.listarTodasPagamento()) {
-            if (p != null) System.out.println(p);
+            if (p != null)
+                System.out.println(p);
         }
 
         // Buscar por ID
@@ -71,30 +74,29 @@ public class Main {
         reservaController.removerReserva(1);
         System.out.println("\nReservas após remoção:");
         for (Reserva r : reservaController.listarTodasReservas()) {
-            if (r != null) System.out.println(r);
+            if (r != null)
+                System.out.println(r);
         }
 
         try {
             System.out.println("\nTeste: Cadastrar Funcionário com Salário Fixo");
             usuarioController.cadastrarFuncionarioFixo(
-                "Maria", "11111111111", "maria@email.com", Cargo.RECEPCIONISTA, 3000.0
-            );
+                    "Maria", "11111111111", "maria@email.com", Cargo.RECEPCIONISTA, 3000.0);
 
             System.out.println("\nTeste: Cadastrar Funcionário Comissionado");
             usuarioController.cadastrarFuncionarioComissionado(
-                "João", "22222222222", "joao@email.com", Cargo.CAMAREIRA, 10000, 0.1
-            );
+                    "João", "22222222222", "joao@email.com", Cargo.CAMAREIRA, 10000, 0.1);
 
             System.out.println("\nTeste: Cadastrar Funcionário Fixo + Comissão");
             usuarioController.cadastrarFuncionarioFixoMaisComissao(
-                "Ana", "33333333333", "ana@email.com", Cargo.GERENTE, 2500.0, 15000.0, 0.05
-            );
+                    "Ana", "33333333333", "ana@email.com", Cargo.GERENTE, 2500.0, 15000.0, 0.05);
 
             // Listar todos os usuários cadastrados
             System.out.println("\nUsuários cadastrados:");
             var usuarios = usuarioController.listarTodosUsuarios();
             for (var usuario : usuarios) {
-                System.out.println("ID: " + usuario.getId() + " | Usuário: " + usuario.getUsuario() + " | Email: " + usuario.getEmail());
+                System.out.println("ID: " + usuario.getId() + " | Usuário: " + usuario.getUsuario() + " | Email: "
+                        + usuario.getEmail());
             }
 
         } catch (DadosInvalidosException e) {
@@ -111,7 +113,7 @@ public class Main {
                 System.out.println("-----------------------------");
             }
         }
-        
+
         // Listar todos os usuários
         System.out.println("\n Teste: Listar todos os usuários");
         Usuario[] usuarios = usuarioController.listarTodosUsuarios();
@@ -120,7 +122,7 @@ public class Main {
         }
 
         try {
-            //buscando usuário por id
+            // buscando usuário por id
             System.out.println("\n Teste: Buscar usuário por ID (ID 1)");
             Usuario usuario = usuarioController.buscarPorId(1);
             if (usuario != null) {
@@ -129,18 +131,18 @@ public class Main {
                 System.out.println("Usuário não encontrado.");
             }
 
-            //Atualizando usuário
+            // Atualizando usuário
             System.out.println("\n Teste: Atualizar usuário (ID 1)");
             if (usuario != null) {
                 usuario.setUsuario("João Atualizado");
                 usuarioController.atualizar(usuario);
             }
 
-            //removendo usuário por id
+            // removendo usuário por id
             System.out.println("\n Teste: Remover usuário (ID 2)");
             usuarioController.deletar(2);
 
-            //listando usuários após remoção
+            // listando usuários após remoção
             System.out.println("\n Estado final dos usuários:");
             for (Usuario u : usuarioController.listarTodosUsuarios()) {
                 System.out.println("ID: " + u.getId() + " | Nome: " + u.getUsuario());
@@ -150,33 +152,35 @@ public class Main {
         }
     }
 
-
-   /*
-   TESTES QUE AINDA VÃO SER IMPLEMENTADOS
-   // Criar quartos
-Quarto quarto1 = new Quarto(1, TipoQuarto.SIMPLES, 2, 150.0, 1);
-Quarto quarto2 = new Quarto(2, TipoQuarto.LUXO, 4, 300.0, 2);
-
-// Criar hóspede (supondo construtor simples)
-Hospede hospede = new Hospede(1, "Antônio Guedes");
-
-// Criar reserva para 3 hóspedes, 3 dias
-Reserva reserva = new Reserva(1, new Date(), new Date(System.currentTimeMillis() + 3L * 24 * 60 * 60 * 1000), hospede, 3, 0.0);
-
-// Adicionar itens à reserva
-reserva.adicionarItem(quarto1, 2); // 2 dias no quarto simples
-reserva.adicionarItem(quarto2, 1); // 1 dia no quarto luxo
-
-// Mostrar detalhes da reserva
-System.out.println(reserva);
-
-// Mostrar cada item da reserva
-for (ItemReserva item : reserva.getItensReserva()) {
-    System.out.println(item);
-}
-
-// Mostrar valor total dos itens
-System.out.println("Valor total dos itens: " + reserva.calcularValorTotalItens());
-*/ 
+    /*
+     * TESTES QUE AINDA VÃO SER IMPLEMENTADOS
+     * // Criar quartos
+     * Quarto quarto1 = new Quarto(1, TipoQuarto.SIMPLES, 2, 150.0, 1);
+     * Quarto quarto2 = new Quarto(2, TipoQuarto.LUXO, 4, 300.0, 2);
+     * 
+     * // Criar hóspede (supondo construtor simples)
+     * Hospede hospede = new Hospede(1, "Antônio Guedes");
+     * 
+     * // Criar reserva para 3 hóspedes, 3 dias
+     * Reserva reserva = new Reserva(1, new Date(), new
+     * Date(System.currentTimeMillis() + 3L * 24 * 60 * 60 * 1000), hospede, 3,
+     * 0.0);
+     * 
+     * // Adicionar itens à reserva
+     * reserva.adicionarItem(quarto1, 2); // 2 dias no quarto simples
+     * reserva.adicionarItem(quarto2, 1); // 1 dia no quarto luxo
+     * 
+     * // Mostrar detalhes da reserva
+     * System.out.println(reserva);
+     * 
+     * // Mostrar cada item da reserva
+     * for (ItemReserva item : reserva.getItensReserva()) {
+     * System.out.println(item);
+     * }
+     * 
+     * // Mostrar valor total dos itens
+     * System.out.println("Valor total dos itens: " +
+     * reserva.calcularValorTotalItens());
+     */
 
 }
