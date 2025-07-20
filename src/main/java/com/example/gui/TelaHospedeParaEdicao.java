@@ -57,7 +57,7 @@ public class TelaHospedeParaEdicao {
                 Hospede hospede = hospedeAtual; // Assuming the current hospede is used
                 int roomNumber = Integer.parseInt(fields[3]);
                 double price = Double.parseDouble(fields[4]);
-                reservas.add(new Reserva(id, startDate, endDate, hospede, roomNumber, price));
+                reservas.add(new Reserva(id, startDate, endDate, hospede, roomNumber, price, false));
             }
         }
         return reservas;
@@ -73,9 +73,8 @@ public class TelaHospedeParaEdicao {
                 FormaDePagamento formaDePagamento = FormaDePagamento.valueOf(fields[1]); 
                 ServicosAdicionais servicosAdicionais = ServicosAdicionais.valueOf(pagamento); 
                 double valor = Double.parseDouble(fields[3]);
-                Reserva reserva = new Reserva(Integer.parseInt(fields[4]), null, null, hospedeAtual, id, valor); // Adjust constructor as needed
-                Hospede hospede = hospedeAtual; 
-                pagamentos.add(new Pagamento(id, formaDePagamento, servicosAdicionais, valor, reserva, hospede));
+                Reserva reserva = new Reserva(Integer.parseInt(fields[4]), null, null, hospedeAtual, id, valor, false);
+                pagamentos.add(new Pagamento(id, formaDePagamento, servicosAdicionais, valor, reserva, hospedeAtual));
             }
         }
         return pagamentos;

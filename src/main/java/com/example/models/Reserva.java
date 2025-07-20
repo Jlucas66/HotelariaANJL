@@ -131,6 +131,10 @@ public void setStatus(String status) {
         return itensReserva.stream().mapToDouble(ItemReserva::getPrecoTotal).sum();
     }
 
+    public void setItensReserva(ArrayList<ItemReserva> itensReserva) {
+        this.itensReserva = itensReserva;
+    }
+
     public enum StatusReserva {
     PENDENTE, CONFIRMADA, CANCELADA, EM_ANDAMENTO, FINALIZADA
 }
