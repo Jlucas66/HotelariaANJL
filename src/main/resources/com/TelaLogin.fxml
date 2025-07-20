@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1187.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1187.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.TelaLoginController">
    <children>
       <BorderPane layoutX="-1.0" prefHeight="734.0" prefWidth="388.0" style="-fx-background-color: #2196F3;">
          <right>
@@ -39,11 +40,14 @@
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="603.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="685.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="767.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <TextField layoutX="707.0" layoutY="189.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
-      <Text layoutX="708.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário:" />
+      <TextField fx:id="txtEmail" layoutX="707.0" layoutY="189.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
+      <Text layoutX="708.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
       <Text layoutX="708.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" />
-      <PasswordField layoutX="707.0" layoutY="286.0" prefHeight="26.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
-      <Button layoutX="695.0" layoutY="436.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" style="-fx-background-color: #2196F3;" text="Entrar" />
-      <Button layoutX="858.0" layoutY="436.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="127.0" style="-fx-background-color: #2196F3;" text="Cadastrar" />
+      <PasswordField fx:id="txtSenha" layoutX="707.0" layoutY="286.0" prefHeight="26.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
+      <Button fx:id="btnEntrar" layoutX="696.0" layoutY="472.0" mnemonicParsing="false" onAction="#entrar" prefHeight="36.0" prefWidth="127.0" style="-fx-background-color: #2196F3;" text="Entrar" />
+      <Button fx:id="btnCadastrar" layoutX="857.0" layoutY="508.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="36.0" prefWidth="127.0" style="-fx-background-color: #2196F3;" text="Cadastrar" />
+      <ComboBox fx:id="comboTipoLogin" layoutX="707.0" layoutY="380.0" prefHeight="28.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Text layoutX="708.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione o tipo de login:" />
+      <Button fx:id="btnSair" layoutX="1113.0" layoutY="14.0" mnemonicParsing="false" onAction="#sair" prefHeight="7.0" prefWidth="60.0" style="-fx-background-color: #2196F3;" text="Sair" />
    </children>
 </AnchorPane>

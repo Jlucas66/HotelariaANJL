@@ -11,17 +11,19 @@ public class Reserva {
     private int numeroDeHospedes;
     private Double valorBase;
     private Pagamento pagamento;
+    private boolean confirmada;
     private String status;
     private ArrayList<ItemReserva> itensReserva;
 
     public Reserva(int id, Date dataEntrada, Date dataSaida, Hospede hospedeResponsavel, int numeroDeHospedes,
-            Double valorBase) {
+            Double valorBase, boolean confirmada) {
         this.id = id;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.hospedeResponsavel = hospedeResponsavel;
         this.numeroDeHospedes = numeroDeHospedes;
         this.valorBase = valorBase;
+        this.confirmada = false;
         this.itensReserva = new ArrayList<>();
     }
 
@@ -88,6 +90,7 @@ public class Reserva {
     public void setId(int id) {
         this.id = id;
     }
+    
     public String getStatus() {
     return status;
 }
@@ -131,5 +134,12 @@ public void setStatus(String status) {
     public enum StatusReserva {
     PENDENTE, CONFIRMADA, CANCELADA, EM_ANDAMENTO, FINALIZADA
 }
+    public boolean isConfirmada() {
+        return confirmada;
+    }
+
+    public void setConfirmada(boolean confirmada) {
+        this.confirmada = confirmada;
+    }
 
 }

@@ -122,4 +122,15 @@ public class UsuarioController implements IUsuarioController {
         }
         usuarioRepository.update(usuarioAtualizado);
     }
+
+    @Override
+    public Usuario buscarPorEmailESenha(String email, String senha) throws DadosInvalidosException {
+        for (Usuario u : listarTodosUsuarios()) {
+            if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
+                return u;
+            }
+        }
+        return null;
+    }
+    
 }

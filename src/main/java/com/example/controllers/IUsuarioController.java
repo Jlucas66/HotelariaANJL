@@ -7,6 +7,7 @@ import com.example.models.Usuario;
 public interface IUsuarioController {
     Usuario[] listarTodosUsuarios() throws DadosInvalidosException;
     Usuario buscarPorId(int id) throws DadosInvalidosException;
+    Usuario buscarPorEmailESenha(String email, String senha) throws DadosInvalidosException;
     void cadastrarFuncionarioFixo(String nome, String cpf, String email, Cargo cargo, double salarioFixo) throws DadosInvalidosException;
     void cadastrarFuncionarioComissionado(String nome, String cpf, String email, Cargo cargo, double reservasFeitas, double taxaPorReserva) throws DadosInvalidosException;
     void cadastrarFuncionarioFixoMaisComissao(String nome, String cpf, String email, Cargo cargo, double salarioFixo, double reservasFeitas, double taxaPorReserva) throws DadosInvalidosException;
