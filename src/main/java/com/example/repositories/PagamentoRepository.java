@@ -1,5 +1,8 @@
 package com.example.repositories;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import com.example.models.Pagamento;
 
 public class PagamentoRepository implements IRepositories {
@@ -97,5 +100,50 @@ public Pagamento findById(int id) {
         }
         System.out.println("Pagamento com ID " + id + " não encontrado para atualizar.");
     }
+
+    public Pagamento[] findByHospedeCpf(String cpf) {
+    ArrayList<Pagamento> resultado = new ArrayList<>();
+    for (int i = 0; i < contador; i++) {
+        Pagamento pagamento = pagamentos[i];
+        if (pagamento.getHospede() != null && pagamento.getHospede().getCpf().equals(cpf)) {
+            resultado.add(pagamento);
+        }
+    }
+    return resultado.toArray(new Pagamento[0]);
+}
+
+
+public Pagamento[] findByPeriodo(String dataInicio, String dataFim) {
+    ArrayList<Pagamento> resultado = new ArrayList<>();
+    for (int i = 0; i < contador; i++) {
+        Pagamento pagamento = pagamentos[i];
+        if (pagamento.getReserva() != null) {
+            Date entrada = pagamento.getReserva().getDataEntrada();
+            Date saida = pagamento.getReserva().getDataSaida();
+            // Supondo que dataInicio/dataFim são no formato "yyyy-MM-dd"
+            try {
+                Date inicio = new java.text.SimpleDateFormat("yyyy-MM-dd").parse(dataInicio);
+                Date fim = new java.text.SimpleDateFormat("yyyy-MM-dd").parse(dataFim);
+                if (!(saida.before(inicio) || entrada.after(fim))) {
+                    resultado.add(pagamento);
+                }
+            } catch (Exception e) {
+                // Ignorar datas inválidas
+            }
+        }
+    }
+    return resultado.toArray(new Pagamento[0]);
+}
+
+public Pagamento[] findByStatus(String status) {
+    ArrayList<Pagamento> resultado = new ArrayList<>();
+    for (int i = 0; i < contador; i++) {
+        Pagamento pagamento = pagamentos[i];
+        if (pagamento.getStatus() != null && pagamento.getStatus().equalsIgnoreCase(status)) {
+            resultado.add(pagamento);
+        }
+    }
+    return resultado.toArray(new Pagamento[0]);
+}
 
 }

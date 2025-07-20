@@ -1,6 +1,11 @@
 package com.example.repositories;
 
+import java.util.ArrayList;
+import java.util.Date;
+
+import com.example.models.ItemReserva;
 import com.example.models.Quarto;
+import com.example.models.Reserva;
 
 public class QuartoRepository implements IRepositories {
 
@@ -33,14 +38,14 @@ public class QuartoRepository implements IRepositories {
     }
 
     @Override
-public Quarto findById(int id) {
-    for (int i = 0; i < contador; i++) {
-        if (quartos[i].getId() == id) {
-            return quartos[i];
+    public Quarto findById(int id) {
+        for (int i = 0; i < contador; i++) {
+            if (quartos[i].getId() == id) {
+                return quartos[i];
+            }
         }
+        return null;
     }
-    return null;
-}
 
     @Override
     public void save(Object entity) {
@@ -99,5 +104,54 @@ public Quarto findById(int id) {
         System.out.println("Quarto com ID " + id + " não encontrado para atualizar.");
     }
 
-    
+    public Quarto[] findDisponiveisPorPeriodo(Date dataEntrada, Date dataSaida) {
+        ArrayList<Quarto> disponiveis = new ArrayList<>();
+        for (int i = 0; i < contador; i++) {
+            Quarto quarto = quartos[i];
+            boolean ocupado = false;
+            Reserva[] reservas = ReservaRepository.getInstance().findAll();
+            for (Reserva reserva : reservas) {
+                for (ItemReserva item : reserva.getItensReserva()) {
+                    if (item.getQuarto().equals(quarto)) {
+                        // Verifica se há sobreposição de datas
+                        if (!(reserva.getDataSaida().before(dataEntrada)
+                                || reserva.getDataEntrada().after(dataSaida))) {
+                            ocupado = true;
+                            break;
+                        }
+                    }
+                }
+                if (ocupado)
+                    break;
+            }
+            if (!ocupado) {
+                disponiveis.add(quarto);
+            }
+        }
+        return disponiveis.toArray(new Quarto[0]);
+    }
+
+    public boolean temReservaAtiva(int quartoId) {
+        Reserva[] reservas = ReservaRepository.getInstance().findAll();
+        for (Reserva reserva : reservas) {
+            for (ItemReserva item : reserva.getItensReserva()) {
+                if (item.getQuarto().getId() == quartoId) {
+                    // Aqui você pode adicionar lógica para considerar apenas reservas ativas
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public Quarto[] findByTipo(com.example.enums.TipoQuarto tipo) {
+    ArrayList<Quarto> resultado = new ArrayList<>();
+    for (int i = 0; i < contador; i++) {
+        if (quartos[i].getTipoQuarto() == tipo) {
+            resultado.add(quartos[i]);
+        }
+    }
+    return resultado.toArray(new Quarto[0]);
+}
+
 }

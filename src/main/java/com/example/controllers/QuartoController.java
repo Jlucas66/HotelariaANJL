@@ -1,10 +1,13 @@
 package com.example.controllers;
 
 import com.example.enums.TipoQuarto;
+import com.example.models.ItemReserva;
 import com.example.models.Quarto;
+import com.example.models.Reserva;
 import com.example.repositories.QuartoRepository;
+import com.example.repositories.ReservaRepository;
 
-public class QuartoController{
+public class QuartoController {
     private QuartoRepository quartoRepository;
 
     public QuartoController() {
@@ -31,8 +34,12 @@ public class QuartoController{
         quartoRepository.update(quarto);
     }
 
-    public void criarQuarto(TipoQuarto tipoQuarto, int capacidade, double preco, int camas){
+    public void criarQuarto(TipoQuarto tipoQuarto, int capacidade, double preco, int camas) {
         System.out.println("Quarto criado");
+    }
+
+    public boolean podeExcluirQuarto(int quartoId) {
+        return !quartoRepository.temReservaAtiva(quartoId);
     }
 
 }

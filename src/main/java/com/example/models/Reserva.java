@@ -11,6 +11,7 @@ public class Reserva {
     private int numeroDeHospedes;
     private Double valorBase;
     private Pagamento pagamento;
+    private String status;
     private ArrayList<ItemReserva> itensReserva;
 
     public Reserva(int id, Date dataEntrada, Date dataSaida, Hospede hospedeResponsavel, int numeroDeHospedes,
@@ -72,7 +73,7 @@ public class Reserva {
         this.pagamento = pagamento;
     }
 
-    public ArrayList<ItemReserva> getItemReserva() {
+    public ArrayList<ItemReserva> getItensReserva() {
         return itensReserva;
     }
 
@@ -87,6 +88,13 @@ public class Reserva {
     public void setId(int id) {
         this.id = id;
     }
+    public String getStatus() {
+    return status;
+}
+
+public void setStatus(String status) {
+    this.status = status;
+}
 
     @Override
     public String toString() {
@@ -119,5 +127,9 @@ public class Reserva {
     public double calcularValorTotal() {
         return itensReserva.stream().mapToDouble(ItemReserva::getPrecoTotal).sum();
     }
+
+    public enum StatusReserva {
+    PENDENTE, CONFIRMADA, CANCELADA, EM_ANDAMENTO, FINALIZADA
+}
 
 }
