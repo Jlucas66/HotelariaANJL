@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1187.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1187.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.TelaHospedeParaEdicaoController">
    <children>
       <BorderPane layoutX="-1.0" prefHeight="734.0" prefWidth="388.0" style="-fx-background-color: #2196F3;">
          <right>
@@ -38,20 +38,20 @@
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="603.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="685.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="767.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Button layoutX="1131.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Sair" />
-      <Text layoutX="685.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" />
-      <TextField layoutX="685.0" layoutY="135.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
-      <Text layoutX="685.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
-      <TextField layoutX="685.0" layoutY="193.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
-      <Text layoutX="685.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
-      <TextField layoutX="685.0" layoutY="272.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
-      <Text layoutX="685.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
-      <TextField layoutX="685.0" layoutY="353.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Button fx:id="btnSair" layoutX="1131.0" layoutY="14.0" mnemonicParsing="false" onAction="#sair" style="-fx-background-color: #2196F3;" text="Sair" />
+      <Text layoutX="688.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" />
+      <TextField fx:id="txtCpf" layoutX="685.0" layoutY="149.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Text layoutX="688.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
+      <TextField fx:id="txtEmail" layoutX="685.0" layoutY="217.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Text layoutX="683.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
+      <TextField fx:id="txtTelefone" layoutX="685.0" layoutY="272.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Text layoutX="681.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
+      <TextField fx:id="txtEndereco" layoutX="685.0" layoutY="353.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
       <Text layoutX="683.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reserva:" />
-      <TextField layoutX="685.0" layoutY="421.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <TextField fx:id="txtReserva" layoutX="685.0" layoutY="421.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
       <Text layoutX="681.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pagamento:" />
-      <TextField layoutX="681.0" layoutY="490.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
-      <Button layoutX="683.0" layoutY="591.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" style="-fx-background-color: #2196F3;" text="Finalizar Edição" />
-      <Button layoutX="828.0" layoutY="632.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="125.0" style="-fx-background-color: #2196F3;" text="Voltar" />
+      <TextField fx:id="txtPagamento" layoutX="681.0" layoutY="490.0" prefHeight="28.0" prefWidth="268.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Button fx:id="btnFinalizar" layoutX="683.0" layoutY="591.0" mnemonicParsing="false" onAction="#finalizarEdicao" prefHeight="45.0" prefWidth="125.0" style="-fx-background-color: #2196F3;" text="Finalizar Edição" />
+      <Button fx:id="btnVoltar" layoutX="828.0" layoutY="632.0" mnemonicParsing="false" onAction="#voltar" prefHeight="45.0" prefWidth="125.0" style="-fx-background-color: #2196F3;" text="Voltar" />
    </children>
 </AnchorPane>

@@ -11,16 +11,18 @@ public class Reserva {
     private int numeroDeHospedes;
     private Double valorBase;
     private Pagamento pagamento;
+    private boolean confirmada;
     private ArrayList<ItemReserva> itensReserva;
 
     public Reserva(int id, Date dataEntrada, Date dataSaida, Hospede hospedeResponsavel, int numeroDeHospedes,
-            Double valorBase) {
+            Double valorBase, boolean confirmada) {
         this.id = id;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.hospedeResponsavel = hospedeResponsavel;
         this.numeroDeHospedes = numeroDeHospedes;
         this.valorBase = valorBase;
+        this.confirmada = false;
         this.itensReserva = new ArrayList<>();
     }
 
@@ -118,6 +120,14 @@ public class Reserva {
 
     public double calcularValorTotal() {
         return itensReserva.stream().mapToDouble(ItemReserva::getPrecoTotal).sum();
+    }
+
+    public boolean isConfirmada() {
+        return confirmada;
+    }
+
+    public void setConfirmada(boolean confirmada) {
+        this.confirmada = confirmada;
     }
 
 }

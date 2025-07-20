@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import com.example.enums.TipoQuarto;
+import com.example.exceptions.DadosInvalidosException;
 import com.example.models.Quarto;
 import com.example.repositories.QuartoRepository;
 
@@ -11,7 +12,7 @@ public class QuartoController{
         this.quartoRepository = QuartoRepository.getInstance();
     }
 
-    public Quarto[] listarTodosQuarto() {
+    public Quarto[] listarTodosQuarto() throws DadosInvalidosException {
         return quartoRepository.findAll();
     }
 
@@ -31,7 +32,7 @@ public class QuartoController{
         quartoRepository.update(quarto);
     }
 
-    public void criarQuarto(TipoQuarto tipoQuarto, int capacidade, double preco, int camas){
+    public void criarQuarto(TipoQuarto tipoQuarto, int capacidade, double preco, int camas) throws DadosInvalidosException {
         System.out.println("Quarto criado");
     }
 

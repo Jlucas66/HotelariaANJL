@@ -1,6 +1,5 @@
 package com.example.controllers;
 
-import com.example.models.ItemReserva;
 import com.example.models.Quarto;
 import com.example.models.Reserva;
 import com.example.repositories.ReservaRepository;
