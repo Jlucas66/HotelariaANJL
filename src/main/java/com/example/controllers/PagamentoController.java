@@ -55,4 +55,12 @@ public class PagamentoController implements IPagamentoController {
         pagamento.setValorTotal(pagamento.getValorTotal() + valorServico);
     }
 
+    public double calcularTarifa(Pagamento pagamento, boolean altaTemporada) {
+    double tarifa = pagamento.getValorTotal();
+    if (altaTemporada) {
+        tarifa *= 1.2; 
+    }
+    return tarifa;
+}
+
 }

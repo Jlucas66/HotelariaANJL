@@ -1,5 +1,10 @@
 package com.example.repositories;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -144,6 +149,22 @@ public Pagamento[] findByStatus(String status) {
         }
     }
     return resultado.toArray(new Pagamento[0]);
+}
+
+public void salvarPagamentosEmArquivo() throws Exception {
+    ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("pagamentos.dat"));
+    out.writeObject(pagamentos);
+    out.writeInt(contador);
+    out.close();
+}
+
+public void carregarPagamentosDeArquivo() throws Exception {
+    File file = new File("pagamentos.dat");
+    if (!file.exists()) return;
+    ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+    pagamentos = (Pagamento[]) in.readObject();
+    contador = in.readInt();
+    in.close();
 }
 
 }

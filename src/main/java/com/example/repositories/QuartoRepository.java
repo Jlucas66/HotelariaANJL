@@ -1,5 +1,10 @@
 package com.example.repositories;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -152,6 +157,22 @@ public class QuartoRepository implements IRepositories {
         }
     }
     return resultado.toArray(new Quarto[0]);
+}
+
+public void salvarQuartosEmArquivo() throws Exception {
+    ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("quartos.dat"));
+    out.writeObject(quartos);
+    out.writeInt(contador);
+    out.close();
+}
+
+public void carregarQuartosDeArquivo() throws Exception {
+    File file = new File("quartos.dat");
+    if (!file.exists()) return;
+    ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+    quartos = (Quarto[]) in.readObject();
+    contador = in.readInt();
+    in.close();
 }
 
 }

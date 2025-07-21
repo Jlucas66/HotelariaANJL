@@ -1,5 +1,11 @@
 package com.example.repositories;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import com.example.models.Usuario;
 
 public class UsuarioRepository implements IRepositories {
@@ -27,7 +33,7 @@ public class UsuarioRepository implements IRepositories {
     private int contador;
 
     private UsuarioRepository() {
-        usuarios = new Usuario[100]; 
+        usuarios = new Usuario[100];
         contador = 0;
     }
 
@@ -82,7 +88,7 @@ public class UsuarioRepository implements IRepositories {
                 break;
             }
         }
-        
+
         if (indexToRemove != -1) {
             for (int i = indexToRemove; i < contador - 1; i++) {
                 usuarios[i] = usuarios[i + 1];
@@ -94,5 +100,22 @@ public class UsuarioRepository implements IRepositories {
             System.out.println("Usuário com ID " + id + " não encontrado.");
         }
     }
-    
+
+    public void salvarUsuariosEmArquivo() throws Exception {
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("usuarios.dat"));
+        out.writeObject(usuarios);
+        out.writeInt(contador);
+        out.close();
+    }
+
+    public void carregarUsuariosDeArquivo() throws Exception {
+        File file = new File("usuarios.dat");
+        if (!file.exists())
+            return;
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+        usuarios = (Usuario[]) in.readObject();
+        contador = in.readInt();
+        in.close();
+    }
+
 }
