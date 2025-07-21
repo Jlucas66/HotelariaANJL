@@ -65,9 +65,9 @@ public class TelaLoginController {
             }
 
             if (tipoSelecionado.equals("Hospede") && usuario instanceof Hospede) {
-                abrirTela("/gui/telas/TelaAposLoginHospede.fxml");
+                abrirTela("/resources/com/TelaAposLoginHospede.fxml");
             } else if (tipoSelecionado.equals("Administrador") && usuario instanceof Funcionario) {
-                abrirTela("/gui/telas/TelaAposLoginAdmin.fxml");
+                abrirTela("/resources/com/TelaAposLoginAdmin.fxml");
             } else {
                 mostrarAlerta(Alert.AlertType.ERROR, "Tipo incorreto", "O usuário não possui permissão para esse tipo de acesso.");
             }
@@ -78,7 +78,7 @@ public class TelaLoginController {
 
     @FXML
     private void cadastrar() {
-        abrirTela("/gui/telas/TelaCadastro.fxml");
+        abrirTela("/resources/com/TelaCadastro.fxml");
     }
 
     @FXML

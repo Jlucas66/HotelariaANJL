@@ -33,7 +33,7 @@ public class TelaCriarQuartoController {
             int camas = Integer.parseInt(txtCamas.getText());
 
             TipoQuarto tipoQuarto = TipoQuarto.valueOf(tipo.toUpperCase());
-            Quarto novoQuarto = new Quarto(0, tipoQuarto, capacidade, preco, camas);
+            Quarto novoQuarto = new Quarto(tipoQuarto, capacidade, preco, camas);
             try {
                 quartoController.criarQuarto(tipoQuarto, capacidade, preco, camas);
             } catch (DadosInvalidosException e) {

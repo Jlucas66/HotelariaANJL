@@ -1,27 +1,24 @@
 package com.example.gui;
 
+import java.util.Arrays;
+
+import com.example.controllers.PagamentoController;
+import com.example.controllers.ReservaController;
+import com.example.controllers.UsuarioController;
 import com.example.enums.FormaDePagamento;
 import com.example.enums.ServicosAdicionais;
-import com.example.exceptions.DadosInvalidosException;
 import com.example.models.Hospede;
-import com.example.models.ItemReserva;
 import com.example.models.Pagamento;
 import com.example.models.Reserva;
 import com.example.models.Usuario;
-import com.example.controllers.*;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Optional;
-
-import org.controlsfx.control.PropertySheet;
-
-import javafx.scene.Scene;
 
 public class CadastroNovoPagamentoController {
 
@@ -101,23 +98,17 @@ public class CadastroNovoPagamentoController {
 
     @FXML
     private void voltar() {
-        try {
-            var loader = new javafx.fxml.FXMLLoader(
-                getClass().getResource("/com/resources/com/TelaPagamentos.fxml")
-            );
-            var root = loader.load();
-            Stage stage = (Stage) btnVoltar.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Pagamentos");
-        } catch (IOException e) {
-            mostrarAlerta(Alert.AlertType.ERROR, "Erro ao voltar",
-                         "Não foi possível carregar a tela de pagamentos.");
-        }
+        fecharTela();
     }
 
     @FXML
     private void sair() {
         Stage stage = (Stage) btnSair.getScene().getWindow();
+        stage.close();
+    }
+
+    private void fecharTela() {
+        Stage stage = (Stage) btnVoltar.getScene().getWindow();
         stage.close();
     }
 

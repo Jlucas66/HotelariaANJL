@@ -53,6 +53,6 @@
       <ComboBox fx:id="cbServicosAdicionais" layoutX="640.0" layoutY="245.0" prefHeight="26.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
       <ComboBox fx:id="cbReserva" layoutX="640.0" layoutY="295.0" prefHeight="26.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
       <Text layoutX="643.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor do Pagamento:" />
-      <TextField fx:id="txtValorPagamento" layoutX="645.0" layoutY="419.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
+      <TextField fx:id="txtValorPagamento" layoutX="640.0" layoutY="408.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
    </children>
 </AnchorPane>
