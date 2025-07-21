@@ -1,9 +1,10 @@
 package com.example.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Reserva {
+public class Reserva implements Serializable{
     private int id;
     private Date dataEntrada;
     private Date dataSaida;
@@ -15,9 +16,9 @@ public class Reserva {
     private String status;
     private ArrayList<ItemReserva> itensReserva;
 
-    public Reserva(int id, Date dataEntrada, Date dataSaida, Hospede hospedeResponsavel, int numeroDeHospedes,
+    public Reserva(Date dataEntrada, Date dataSaida, Hospede hospedeResponsavel, int numeroDeHospedes,
             Double valorBase, boolean confirmada) {
-        this.id = id;
+        this.id = 0;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.hospedeResponsavel = hospedeResponsavel;

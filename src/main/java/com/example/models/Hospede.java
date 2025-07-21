@@ -1,10 +1,11 @@
 package com.example.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.example.models.Hospede;
 
-public class Hospede extends Usuario{
+public class Hospede extends Usuario {
     private String nome;
     private String cpf;
     private String email;

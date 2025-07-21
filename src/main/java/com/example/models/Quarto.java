@@ -1,10 +1,10 @@
 package com.example.models;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
 import com.example.enums.TipoQuarto;
 
-public class Quarto {
+public class Quarto implements Serializable{
     private TipoQuarto tipoQuarto;
     private int capacidadeDeHospedes;
     private Double preco;
@@ -19,8 +19,8 @@ public class Quarto {
         this.id = id;
     }
 
-    public Quarto(int id, TipoQuarto tipoQuarto, int capacidadeDeHospedes, double preco, int numeroDeCamas) {
-        this.id = id;
+    public Quarto(TipoQuarto tipoQuarto, int capacidadeDeHospedes, double preco, int numeroDeCamas) {
+        this.id = 0;
         this.tipoQuarto = tipoQuarto;
         this.capacidadeDeHospedes = capacidadeDeHospedes;
         this.preco = preco;

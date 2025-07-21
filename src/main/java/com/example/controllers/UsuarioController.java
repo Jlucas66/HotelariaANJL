@@ -18,12 +18,12 @@ public class UsuarioController implements IUsuarioController {
     }
 
     public void cadastrarHospede(String nome, String cpf, String email, String endereco, String telefone, String reserva, String metodoPagamento, String usuario, String senha) throws DadosInvalidosException {
-        if (camposVazios(nome, cpf, email, endereco, telefone, reserva, metodoPagamento, usuario, senha)) {
-            throw new DadosInvalidosException("Todos os campos do hóspede são obrigatórios.");
-        }
-        Hospede hospede = new Hospede(nome, cpf, email, "defaultAddress", "defaultPhone", "defaultDOB", "defaultNationality");
-        usuarioRepository.save(hospede);
+    if (usuarioRepository.existePorCpf(cpf)) {
+        throw new DadosInvalidosException("Já existe um hóspede com esse CPF.");
     }
+    Hospede hospede = new Hospede(nome, cpf, email, endereco, telefone, reserva, metodoPagamento);
+    usuarioRepository.save(hospede);
+}
 
     @Override
     public void cadastrarFuncionarioFixo(String nome, String cpf, String email, Cargo cargo, double salarioFixo) throws DadosInvalidosException {

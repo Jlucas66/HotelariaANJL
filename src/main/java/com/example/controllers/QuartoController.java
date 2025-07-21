@@ -22,8 +22,12 @@ public class QuartoController {
     }
 
     public void salvar(Quarto quarto) {
-        quartoRepository.save(quarto);
+    if (quartoRepository.findById(quarto.getId()) != null) {
+        System.out.println("Já existe um quarto com esse ID.");
+        return;
     }
+    quartoRepository.save(quarto);
+}
 
     public void deletar(int id) {
         quartoRepository.delete(id);

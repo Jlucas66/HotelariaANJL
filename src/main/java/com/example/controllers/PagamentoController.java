@@ -20,8 +20,12 @@ public class PagamentoController implements IPagamentoController {
     }
 
     public void salvar(Pagamento pagamento) {
-        pagamentoRepository.save(pagamento);
+    if (pagamentoRepository.findById(pagamento.getId()) != null) {
+        System.out.println("Já existe um pagamento com esse ID.");
+        return;
     }
+    pagamentoRepository.save(pagamento);
+}
 
     public void deletar(int id) {
         pagamentoRepository.delete(id);
@@ -54,5 +58,13 @@ public class PagamentoController implements IPagamentoController {
     public void adicionarServicoAdicional(Pagamento pagamento, double valorServico) {
         pagamento.setValorTotal(pagamento.getValorTotal() + valorServico);
     }
+
+    public double calcularTarifa(Pagamento pagamento, boolean altaTemporada) {
+    double tarifa = pagamento.getValorTotal();
+    if (altaTemporada) {
+        tarifa *= 1.2; 
+    }
+    return tarifa;
+}
 
 }

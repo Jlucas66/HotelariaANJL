@@ -1,6 +1,7 @@
 package com.example.repositories;
 
 import java.util.ArrayList;
+import java.io.*;
 
 import com.example.models.ItemReserva;
 import com.example.models.Quarto;
@@ -171,6 +172,23 @@ public class ReservaRepository implements IRepositories {
             // Ignorar datas inválidas
         }
         return resultado.toArray(new Reserva[0]);
+    }
+
+    public void salvarReservasEmArquivo() throws Exception {
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("reservas.dat"));
+        out.writeObject(reservas);
+        out.writeInt(contador);
+        out.close();
+    }
+
+    public void carregarReservasDeArquivo() throws Exception {
+        File file = new File("reservas.dat");
+        if (!file.exists())
+            return;
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+        reservas = (Reserva[]) in.readObject();
+        contador = in.readInt();
+        in.close();
     }
 
 }
