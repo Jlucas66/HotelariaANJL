@@ -1,13 +1,9 @@
 package com.example.models;
 
-<<<<<<< HEAD
-public class ItemReserva {
-=======
 import java.io.Serializable;
 
 
 public class ItemReserva implements Serializable{
->>>>>>> 5da97b8d893b5cd1c9182956b81134c6fbc2228e
     private Quarto quarto;
     private int quantidadeDeDias;
     private double precoTotal;
