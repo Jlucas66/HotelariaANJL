@@ -1,8 +1,9 @@
 package com.example.models;
 
-import com.example.repositories.ReservaRepository;
+import java.io.Serializable;
 
-public class ItemReserva {
+
+public class ItemReserva implements Serializable{
     private Quarto quarto;
     private int quantidadeDeDias;
     private double precoTotal;

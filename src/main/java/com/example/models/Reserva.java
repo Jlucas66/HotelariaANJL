@@ -1,9 +1,10 @@
 package com.example.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Reserva {
+public class Reserva implements Serializable{
     private int id;
     private Date dataEntrada;
     private Date dataSaida;

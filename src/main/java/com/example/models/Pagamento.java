@@ -1,9 +1,11 @@
 package com.example.models;
 
+import java.io.Serializable;
+
 import com.example.enums.FormaDePagamento;
 import com.example.enums.ServicosAdicionais;
 
-public class Pagamento {
+public class Pagamento implements Serializable {
     private FormaDePagamento formaDePagamento;
     private ServicosAdicionais servicosAdicionais;
     private Double valorTotal;

@@ -1,6 +1,8 @@
 package com.example.models;
 
-public abstract class Usuario {
+import java.io.Serializable;
+
+public abstract class Usuario implements Serializable{
 
     private String id;
     private String usuario;

@@ -35,10 +35,15 @@ public class ReservaController {
     }
 
     public void adicionarItemReserva(int reservaId, Quarto quarto, int dias) {
-        Reserva reserva = reservaRepository.findById(reservaId);
-        reserva.adicionarItem(quarto, dias);
-        reservaRepository.save(reserva);
+    Reserva reserva = reservaRepository.findById(reservaId);
+    if (reserva == null) {
+        System.out.println("Reserva com esse ID não existe.");
+        return;
     }
+    reserva.adicionarItem(quarto, dias);
+    reservaRepository.save(reserva);
+}
+
 
     public boolean reservarQuartos(Reserva reserva) {
         QuartoRepository quartoRepository = QuartoRepository.getInstance();

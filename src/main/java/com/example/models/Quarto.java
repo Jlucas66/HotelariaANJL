@@ -1,10 +1,10 @@
 package com.example.models;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
 import com.example.enums.TipoQuarto;
 
-public class Quarto {
+public class Quarto implements Serializable{
     private TipoQuarto tipoQuarto;
     private int capacidadeDeHospedes;
     private Double preco;

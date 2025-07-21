@@ -20,8 +20,12 @@ public class PagamentoController implements IPagamentoController {
     }
 
     public void salvar(Pagamento pagamento) {
-        pagamentoRepository.save(pagamento);
+    if (pagamentoRepository.findById(pagamento.getId()) != null) {
+        System.out.println("Já existe um pagamento com esse ID.");
+        return;
     }
+    pagamentoRepository.save(pagamento);
+}
 
     public void deletar(int id) {
         pagamentoRepository.delete(id);

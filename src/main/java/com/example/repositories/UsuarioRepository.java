@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import com.example.models.Hospede;
 import com.example.models.Usuario;
 
 public class UsuarioRepository implements IRepositories {
@@ -45,13 +46,13 @@ public class UsuarioRepository implements IRepositories {
     }
 
     @Override
-    public Object[] findAll() {
-        Usuario[] lista = new Usuario[contador];
-        for (int i = 0; i < contador; i++) {
-            lista[i] = usuarios[i];
-        }
-        return lista;
+    public Usuario[] findAll() {
+    Usuario[] lista = new Usuario[contador];
+    for (int i = 0; i < contador; i++) {
+        lista[i] = usuarios[i];
     }
+    return lista;
+}
 
     @Override
     public Object findById(int id) {
@@ -117,5 +118,14 @@ public class UsuarioRepository implements IRepositories {
         contador = in.readInt();
         in.close();
     }
+
+    public boolean existePorCpf(String cpf) {
+    for (int i = 0; i < contador; i++) {
+        if (usuarios[i] instanceof Hospede && ((Hospede)usuarios[i]).getCpf().equals(cpf)) {
+            return true;
+        }
+    }
+    return false;
+}
 
 }

@@ -2,7 +2,7 @@ package com.example.models;
 
 import com.example.enums.Cargo;
 
-public class FuncionarioSalarioFixo extends Funcionario {
+public class FuncionarioSalarioFixo extends Funcionario  {
     private double salarioFixo;
 
     public FuncionarioSalarioFixo(String usuario, String nome, String cpf, String email, String senha, Cargo cargo, double salarioFixo) {
