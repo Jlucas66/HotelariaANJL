@@ -1,5 +1,10 @@
 package com.example.models;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
+
+import java.io.FileOutputStream;
+
 import com.example.enums.TipoQuarto;
 import com.example.repositories.PagamentoRepository;
 import com.example.repositories.QuartoRepository;
@@ -42,5 +47,27 @@ public double gerarRelatorioOcupacaoQuartos(String dataInicio, String dataFim, T
 public int gerarRelatorioCancelamentos(String dataInicio, String dataFim) {
     Reserva[] reservas = ReservaRepository.getInstance().findCanceladasPorPeriodo(dataInicio, dataFim);
     return reservas.length;
+}
+
+public void salvarRelatorioEmPdf(String titulo, String conteudo, String nomeArquivo) {
+    Document documento = new Document();
+    try {
+        PdfWriter.getInstance(documento, new FileOutputStream(nomeArquivo));
+        documento.open();
+        Font tituloFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+        Font corpoFont = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL);
+
+        Paragraph tituloParagrafo = new Paragraph(titulo, tituloFont);
+        tituloParagrafo.setAlignment(Element.ALIGN_CENTER);
+        documento.add(tituloParagrafo);
+
+        documento.add(new Paragraph(" "));
+        documento.add(new Paragraph(conteudo, corpoFont));
+
+    } catch (Exception e) {
+        System.out.println("Erro ao gerar PDF: " + e.getMessage());
+    } finally {
+        documento.close();
+    }
 }
 }

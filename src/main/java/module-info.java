@@ -10,6 +10,7 @@ module com.example.hotelariaanjl {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires itextpdf;
 
 
     opens com.example.testeFront to javafx.fxml;
