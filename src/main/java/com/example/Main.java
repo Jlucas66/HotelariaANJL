@@ -89,8 +89,8 @@ public class Main {
 
             // 2. Cadastro e Gerenciamento de Quartos
             System.out.println("\n--- Cadastro de Quartos ---");
-            quartoController.salvar(new Quarto(1, TipoQuarto.SINGLE, 2, 150.0, 1));
-            quartoController.salvar(new Quarto(2, TipoQuarto.FAMILY, 4, 300.0, 2));
+            quartoController.salvar(new Quarto( TipoQuarto.SINGLE, 2, 150.0, 1));
+            quartoController.salvar(new Quarto( TipoQuarto.FAMILY, 4, 300.0, 2));
 
             System.out.println("\n--- Edição de Quarto ---");
             Quarto quarto1 = quartoController.buscarPorId(1);
@@ -111,7 +111,7 @@ public class Main {
             System.out.println("\n--- Cadastro de Reserva ---");
             Hospede hospede = new Hospede("joaosilva", "João Silva", "12345678900", "joao@email.com", "81999999999",
                     "Rua A, 123", "senha123");
-            Reserva reserva = new Reserva(1, new java.util.Date(),
+            Reserva reserva = new Reserva(new java.util.Date(),
                     new java.util.Date(System.currentTimeMillis() + 2L * 24 * 60 * 60 * 1000), hospede, 2, 0.0, false);
             reserva.adicionarItem(quarto1, 2);
             reservaController.cadastrarReserva(reserva);
@@ -133,7 +133,7 @@ public class Main {
 
             // 5. Pagamento e Faturamento
             System.out.println("\n--- Cadastro de Pagamento ---");
-            Pagamento pagamento = new Pagamento(1, null, null, reserva.calcularValorTotal(), reserva, hospede);
+            Pagamento pagamento = new Pagamento(null, null, reserva.calcularValorTotal(), reserva, hospede);
             pagamentoController.salvar(pagamento);
 
             System.out.println("\n--- Aplicação de Desconto ---");
@@ -169,6 +169,67 @@ public class Main {
             if (funcionario != null) {
                 System.out.println("Funcionário autenticado: " + funcionario.getUsuario());
             }
+
+            
+
+
+
+
+
+
+System.out.println("\n--- Teste: Pagamento com múltiplos quartos ---");
+
+// Buscar o hóspede existente (Ana Paula)
+Usuario hospedeAna = usuarioController.buscarPorId(4);
+
+// Criar novo quarto (caso não exista ainda)
+quartoController.salvar(new Quarto( TipoQuarto.SUITE, 3, 400.0, 2));
+quartoController.salvar(new Quarto( TipoQuarto.DOUBLE, 2, 250.0, 1));
+
+Quarto quartoSuite = quartoController.buscarPorId(3);
+Quarto quartoDouble = quartoController.buscarPorId(4);
+
+// Criar nova reserva com dois quartos para Ana Paula
+Reserva novaReserva = new Reserva(
+    new java.util.Date(),
+    new java.util.Date(System.currentTimeMillis() + 3L * 24 * 60 * 60 * 1000), // 3 dias depois
+    new Hospede("aninha", "Ana Paula", "78945612399", "ana@email.com", "81966666666", "Rua das Flores, 101", "senha456"),
+    2,
+    0.0,
+    false
+);
+
+novaReserva.adicionarItem(quartoSuite, 3); // 3 dias na suíte
+novaReserva.adicionarItem(quartoDouble, 2); // 2 dias no double
+reservaController.cadastrarReserva(novaReserva);
+
+// Mostrar valor da reserva
+double valorReserva = novaReserva.calcularValorTotal();
+System.out.println("Valor total da nova reserva: R$ " + valorReserva);
+
+// Criar pagamento com base nessa reserva
+Pagamento pagamentoAna = new Pagamento(null, null, valorReserva, novaReserva, (Hospede) hospedeAna);
+pagamentoController.salvar(pagamentoAna);
+
+// Aplicar desconto para mais de 5 dias
+double valorComDescontoAna = pagamentoController.aplicarDesconto(pagamentoAna, 6);
+System.out.println("Valor com desconto: R$ " + valorComDescontoAna);
+
+// Adicionar serviço adicional
+pagamentoController.adicionarServicoAdicional(pagamentoAna, 70.0);
+System.out.println("Valor total após serviço adicional: R$ " + pagamentoAna.getValorTotal());
+
+
+
+
+
+
+
+
+
+
+
+
         
 
         // 8. Backup de Dados (já implementado no início e fim da main)

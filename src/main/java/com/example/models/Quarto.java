@@ -19,8 +19,8 @@ public class Quarto implements Serializable{
         this.id = id;
     }
 
-    public Quarto(int id, TipoQuarto tipoQuarto, int capacidadeDeHospedes, double preco, int numeroDeCamas) {
-        this.id = id;
+    public Quarto(TipoQuarto tipoQuarto, int capacidadeDeHospedes, double preco, int numeroDeCamas) {
+        this.id = 0;
         this.tipoQuarto = tipoQuarto;
         this.capacidadeDeHospedes = capacidadeDeHospedes;
         this.preco = preco;

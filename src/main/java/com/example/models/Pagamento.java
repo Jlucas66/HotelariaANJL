@@ -14,9 +14,9 @@ public class Pagamento implements Serializable {
     private String status;
     private int id;
 
-    public Pagamento(int id, FormaDePagamento formaDePagamento, ServicosAdicionais servicosAdicionais,
+    public Pagamento(FormaDePagamento formaDePagamento, ServicosAdicionais servicosAdicionais,
             Double valorTotal, Reserva reserva, Hospede hospede) {
-        this.id = id;
+        this.id = 0;
         this.formaDePagamento = formaDePagamento;
         this.servicosAdicionais = servicosAdicionais;
         this.valorTotal = valorTotal;
