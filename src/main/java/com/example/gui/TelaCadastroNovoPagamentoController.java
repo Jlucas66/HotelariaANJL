@@ -20,7 +20,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CadastroNovoPagamentoController {
+public class TelaCadastroNovoPagamentoController {
 
     // Campos de entrada
     @FXML private TextField txtHospede;

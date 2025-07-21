@@ -78,7 +78,7 @@ public class TelaListaHospedesController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/telas/TelaEditarHospede.fxml"));
             AnchorPane pane = loader.load();
 
-            TelaHospedeParaEdicao controller = loader.getController();
+            TelaHospedeParaEdicaoController controller = loader.getController();
             controller.setHospede(selecionado);
 
             Stage stage = new Stage();

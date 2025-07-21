@@ -25,7 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class PagamentoControllerTela implements Initializable {
+public class TelaPagamentosController implements Initializable {
 
     // Tabela e colunas
     @FXML private TableView<Pagamento> tabelaPagamentos;

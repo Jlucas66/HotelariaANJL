@@ -18,7 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class TelaHospedeParaEdicao {
+public class TelaHospedeParaEdicaoController {
 
     @FXML private TextField txtCpf;
     @FXML private TextField txtEmail;
