@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -38,18 +39,20 @@
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="603.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="685.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Polygon fill="#2196f3" layoutX="323.0" layoutY="767.0" points="159.0, -67.0, 64.0, -31.0, 64.0, -113.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Button layoutX="1131.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Sair" />
-      <Button layoutX="640.0" layoutY="490.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="123.0" style="-fx-background-color: #2196F3;" text="Finalizar" />
-      <Button layoutX="790.0" layoutY="572.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="123.0" style="-fx-background-color: #2196F3;" text="Voltar" />
+      <Button fx:id="btnSair" layoutX="1131.0" layoutY="14.0" mnemonicParsing="false" onAction="#sair" style="-fx-background-color: #2196F3;" text="Sair" />
+      <Button fx:id="btnFinalizar" layoutX="640.0" layoutY="490.0" mnemonicParsing="false" onAction="#finalizarPagamento" prefHeight="51.0" prefWidth="123.0" style="-fx-background-color: #2196F3;" text="Finalizar" />
+      <Button fx:id="btnVoltar" layoutX="790.0" layoutY="572.0" mnemonicParsing="false" onAction="#voltar" prefHeight="51.0" prefWidth="123.0" style="-fx-background-color: #2196F3;" text="Voltar" />
       <Text layoutX="646.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hóspede Responsável:" />
-      <TextField layoutX="647.0" layoutY="122.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
+      <TextField fx:id="txtHospede" layoutX="647.0" layoutY="122.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
       <Text layoutX="643.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forma de Pagamento:" />
-      <TextField layoutX="642.0" layoutY="181.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
-      <TextField layoutX="642.0" layoutY="236.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
-      <Text layoutX="642.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Serviços Adicionais:" />
+      <Text layoutX="642.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Serviços Adicionais:" />
       <Text layoutX="643.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reserva:" />
-      <TextField layoutX="642.0" layoutY="295.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
       <Text layoutX="643.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" />
-      <TextField layoutX="645.0" layoutY="352.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
+      <TextField fx:id="txtStatus" layoutX="645.0" layoutY="352.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
+      <ComboBox fx:id="cbFormaPagamento" layoutX="640.0" layoutY="191.0" prefHeight="26.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <ComboBox fx:id="cbServicosAdicionais" layoutX="640.0" layoutY="245.0" prefHeight="26.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <ComboBox fx:id="cbReserva" layoutX="640.0" layoutY="295.0" prefHeight="26.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: #2196F3; -fx-border-width: 0 0 2 0;" />
+      <Text layoutX="643.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor do Pagamento:" />
+      <TextField fx:id="txtValorPagamento" layoutX="645.0" layoutY="419.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #2196F3 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 5 0 5 0;" />
    </children>
 </AnchorPane>

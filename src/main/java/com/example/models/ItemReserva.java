@@ -1,7 +1,5 @@
 package com.example.models;
 
-import com.example.repositories.ReservaRepository;
-
 public class ItemReserva {
     private Quarto quarto;
     private int quantidadeDeDias;
